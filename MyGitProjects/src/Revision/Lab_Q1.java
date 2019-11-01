@@ -32,38 +32,98 @@ public class Lab_Q1 {
             int random=rand.nextInt(101);
             ID[i]=c+""+random;
             System.out.println(ID[i]);        //workerID
-        
+            
         }
-        int a=0,b=0,c=0,d=0,e=0,f=0;
+        int a[]=new int[5];         // sum for each fruit respective to their ID
+        int b[]=new int[5];
+        int c[]=new int[5];
+        int d[]=new int[5];
+        int e[]=new int[5];
+        int f[]=new int[5];
+        int sum[]=new int[5];       // sum fpr each worker
+        int total=0;                  //sum for all workers
+        String maxID,minID;
+        
+        for(int i=0;i<ID.length;i++){
+            a[i]=0;
+            b[i]=0;
+            c[i]=0;
+            d[i]=0;
+            e[i]=0;
+            f[i]=0;
+            sum[i]=0;
+        }
         String fruits[]={"rambutan","durian","langsat","mangosteen","jackfruit","mango"};
-        int n=sc.nextInt();
+        int n=sc.nextInt();     //n number of fruits basket
         
-        for(int i=0;i<10;i++){
+        
+        
+        
             
-            int random=rand.nextInt(fruits.length);
-            String ans=fruits[random];
-            
-            if(ans.equals("rambutan")){
-                a+=1;
+            for(int i=0;i<n;i++){
+
+                int random=rand.nextInt(fruits.length);
+                String ans=fruits[random];
+                int max=0,min=999;
+                sum[i]=0;
+                
+                if(ans.equals("rambutan")){
+                    a[i]+=1;
+                    sum[i]+=1;
+                    if(a[i]>max){
+                        max=a[i];
+                        maxID=ID[i];
+                    }
+                    if(a[i]<min){
+                        min=a[i];
+                        minID=ID[i];
+                    }
+                }
+                else if(ans.equals("durian")){
+                    b[i]+=1;
+                    sum[i]+=1;
+                    if(b[i]>max)
+                        max=b[i];
+                    if(b[i]<min)
+                        min=b[i];
+                }
+                else if(ans.equals("langsat")){
+                    c[i]+=1;
+                    sum[i]+=1;
+                    if(c[i]>max)
+                        max=c[i];
+                    if(c[i]<min)
+                        min=c[i];
+                }
+                else if(ans.equals("mangosteen")){
+                    d[i]+=1;
+                    sum[i]+=1;
+                    if(d[i]>max)
+                        max=d[i];
+                    if(d[i]<min)
+                        min=d[i];
+                }
+                else if(ans.equals("jackfruit")){
+                    e[i]+=1;
+                    sum[i]+=1;
+                    if(e[i]>max)
+                        max=e[i];
+                    if(e[i]<min)
+                        min=e[i];
+                }
+                else if(ans.equals("mango")){
+                    f[i]+=1;
+                    sum[i]+=1;
+                    if(f[i]>max)
+                        max=f[i];
+                    if(f[i]<min)
+                        min=f[i];
+                }
+                total+=sum[i];       //sum for all workers
             }
-            else if(ans.equals("durian")){
-                b+=1;
-            }
-            else if(ans.equals("langsat")){
-                c+=1;
-            }
-            else if(ans.equals("mangosteen")){
-                d+=1;
-            }
-            else if(ans.equals("jackfruit")){
-                e+=1;
-            }
-            else if(ans.equals("mango")){
-                f+=1;
-            }
+        for(int x=0;x<ID.length;x++){
             
         }
-        
     }
     
 }
