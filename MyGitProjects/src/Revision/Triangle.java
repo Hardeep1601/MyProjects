@@ -20,6 +20,7 @@ public class Triangle {
         // TODO code application logic here
         Scanner sc=new Scanner(System.in);
         System.out.println("Pls enter the number of stars : ");
+        
         int n=sc.nextInt();
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
