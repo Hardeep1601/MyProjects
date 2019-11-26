@@ -57,6 +57,7 @@ public class NewMain {
         arr.add(b);
         arr.add(obj[0]);
         arr.add(obj[1]);
+        arr.remove(obj[0]);
     }
     
 }
