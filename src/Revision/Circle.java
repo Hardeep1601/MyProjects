@@ -18,23 +18,24 @@ public class Circle {
         // TODO code application logic here
         int r=5,mp1,mp2;
         int rem=r/2+1;
-        mp1=rem;
+        mp1=rem+1;
         mp2=rem+r+1;
-        
-        for(int i=0;i<r;i++){
-            if(i==0 || i==r*2+1){
+        int total;
+        for(int i=0;i<=r*2+1;i++){
+            if(i==0 || i==rem*2+2){
                 
                 for(int j=0;j<rem;j++){
                     System.out.print(" ");
                 }
-                for(int j=0;j<r;j++){
+                System.out.print(" ");
+                for(int j=0;j<r-1;j++){
                     System.out.print("*");
                 }
                 for(int j=0;j<rem;j++){
                     System.out.print(" ");
                 }
             }else{
-                for(int j=1;j<=r*2+1;j++){
+                for(int j=1;j<=r*2+2;j++){
                     if(j==mp1 || j==mp2 ){
                         System.out.print("*");
                     }else{
@@ -45,10 +46,17 @@ public class Circle {
                 if(i<r-1){
                     mp1--;
                     mp2++; 
+                }else if(i<r*2-2){
+                    
+                    mp1++;
+                    mp2--;
+                }else{
+                    break;
                 }
                 
                 
             }
+            
             System.out.println("");
         }
     }
