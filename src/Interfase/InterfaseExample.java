@@ -24,7 +24,7 @@ public class InterfaseExample implements WaterBottleInterfase{
         // TODO code application logic here
         InterfaseExample ex=new InterfaseExample(); //creates the class of itself
         
-        System.out.println(color);  // since WaterBottleInterfase is implementes,, so it knows the "color" variable
+//        System.out.println(color);  // since WaterBottleInterfase is implementes,, so it knows the "color" variable
         ex.fillUp();
         ex.pourOut();
     }

@@ -13,8 +13,8 @@ public class PaySystem {
     protected int payrate;
     protected int numOfHours;
     
-    public void totalPay() {
-        System.out.println(this.numOfHours*1.3);
+    public double totalPay() {
+        return this.payrate*this.numOfHours;
     }
     
 }
