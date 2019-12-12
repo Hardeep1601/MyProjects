@@ -32,7 +32,7 @@ public class SpecialPay extends PaySystem{
 //        this.payrate=p;
 //        this.numOfHours=hrs;
 //    }
-    public void totalPay(){
-        System.out.println(this.numOfHours*1.3);
-    }
+//    public void totalPay(){
+//        System.out.println(this.numOfHours*1.3);
+//    }
 }

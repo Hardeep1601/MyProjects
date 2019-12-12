@@ -16,13 +16,18 @@ public class question1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        bulkDiscount d=new bulkDiscount(1,0.9);
-        d.computeDiscount(3, 5.0);
+        int number=5;
+        double cost=10;
         
-        System.out.println("\nNext Object\n");
+        bulkDiscount d=new bulkDiscount(5,5);
+        d.computeDiscount(number, cost);
+      
         
         otherDiscount o=new otherDiscount();
-        o.computeDiscount(7, 10.0);
+        o.computeDiscount(number, cost);
+        
+        combineDiscount c=new combineDiscount(d,o);
+        c.computeDiscount(number, cost);
         
     }
     
@@ -35,13 +40,7 @@ abstract class discountPolicy{
     protected double itemsPrice;
     
     
-    public void computeDiscount(int count, double itemCost){
-        this.count=count;
-        this.itemCost=itemCost;
-        
-        this.itemsPrice=this.discount*this.itemCost*this.count;
-        System.out.println(this.itemsPrice);
-    }
+    public abstract void computeDiscount(int count, double itemCost);
 
     public double getDiscount() {
         return this.discount;
@@ -64,10 +63,11 @@ class bulkDiscount extends discountPolicy{
         this.itemCost=itemCost;
         
         if(this.min<this.count){
-            super.computeDiscount(count, itemCost);
+            System.out.println("Bulk discount : "+this.discount);
+//            super.computeDiscount(count, itemCost);
         }
         else{
-            System.out.println("NO discount is given !!!");
+            System.out.println("Bulk discount : 0 ");
         }
     }
 }
@@ -90,19 +90,36 @@ class otherDiscount extends discountPolicy{
         else{
             this.discount=30;
         }
-        this.discount=1-this.discount/100;
+//        this.discount=1-this.discount/100;
         
-        System.out.println(this.discount);
-        super.computeDiscount(this.count, this.itemCost);
+        System.out.println("Other discount : "+this.discount);
+//        super.computeDiscount(this.count, this.itemCost);
     }
 }
 
 class combineDiscount extends discountPolicy{
-    public double computeDiscount(discountPolicy a,discountPolicy b){
-        double x=a.getDiscount();
-        double y=b.getDiscount();
-        
-        return Math.max(x, y);
-        
+    public discountPolicy a;
+    public discountPolicy b;
+    
+    public double num1;
+    public double num2;
+    
+    public combineDiscount(discountPolicy a,discountPolicy b){
+        this.a=a;
+        this.b=b;
+        this.num1=a.getDiscount();
+        this.num2=b.getDiscount();
+      
     }
+
+    @Override
+    public void computeDiscount(int count, double itemCost) {
+        if(a.getDiscount()>b.getDiscount()){
+            System.out.println("Combine discount : "+a.getDiscount());
+        } else {
+            System.out.println("Combine discount : "+b.getDiscount());
+        }
+            
+    }
+    
 }
