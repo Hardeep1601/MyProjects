@@ -8,7 +8,7 @@
  *
  * @author USER
  */
-public class Diff {
+public class GenericMethodTest2 {
     
 }
 
