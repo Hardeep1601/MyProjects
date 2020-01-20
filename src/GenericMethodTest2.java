@@ -26,6 +26,9 @@ class Box<T> {
    }
 
    public static void main(String[] args) {
+       
+       // GenericStackName<DataType> stack1 = new GenericStackName<DataType>(); 
+       // GenericStack<String> stack1 = new GenericStack<String>(); 
       Box<Integer> integerBox = new Box<Integer>();
       Box<String> stringBox = new Box<String>();
     
